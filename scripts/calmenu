@@ -1,0 +1,4 @@
+#!/bin/sh
+# dmenu launcher for cal (calendar)
+
+cal -m | dmenu -p calendar -l 8 -fn "Terminus (TTF):pixelsize=28"

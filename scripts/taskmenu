@@ -1,0 +1,4 @@
+#!/bin/sh
+# dmenu launcher for taskwarrior
+
+task next | dmenu -p tasks -l 20 -fn "Terminus (TTF):pixelsize=28"
