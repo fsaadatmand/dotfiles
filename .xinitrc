@@ -13,25 +13,24 @@ pgrep redshift &> /dev/null || redshift &> /dev/null &
 # window effects
 # compton -b &
 
-	# dwm status bar
-	/usr/bin/slstatus &
+# dwm status bar
+/usr/bin/slstatus &
 
-	# lock screen after 10 mins of inactivity
-	xset s 900 &
-	/home/faisal/bin/xsidle.sh slock &
+# lock screen after 10 mins of inactivity
+xset s 900 &
+/home/faisal/bin/xsidle.sh slock &
 
-	# 2nd  MOD key
-	/home/faisal/bin/dwm_2ndmod &
+# 2nd  MOD key
+/home/faisal/bin/dwm_2ndmod &
 
-	# clipboard daemon
-	clipmenud &
+# clipboard daemon
+clipmenud &
 
-	# X background colour
-	xsetroot -gray
+# X background colour
+xsetroot -gray
 
-	# wallpaper
-	#feh --bg-fill "/home/faisal/Photo/wallpapers/IMG_398953.png" &
+# wallpaper
+#feh --bg-fill "/home/faisal/Photo/wallpapers/IMG_398953.png" &
 
-	# start window manager script
-	exec dwm 
-	#exec notion
+# start window manager script
+exec dwm 
