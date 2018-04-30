@@ -1,0 +1,13 @@
+[user]
+  name = cdude
+  email = cdude996@gmail.com
+
+[github]
+  user = cdude996
+
+[core]
+  excludesfile = ~/.gitignore_global
+  editor = vi
+  filemode = false
+  trustctime = false
+    autocrlf = input
