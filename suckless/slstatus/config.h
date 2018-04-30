@@ -56,7 +56,7 @@ static const struct arg args[] = {
 	{ temp, "%sC ", "/sys/class/thermal/thermal_zone0/temp" },
 	{ ram_used, "%.5s ", NULL },
 /*	{ ipv4, "eth %s ", "enp60s0u2" }, */
-/*	{ run_command, "%s ", "/home/faisal/bin/net_speed.sh wlps40" }, */
+/*	{ run_command, "%s ", "~/bin/net_speed.sh wlps40" }, */
 	{ wifi_perc, "[%s]", "wlp4s0" },
 	{ wifi_essid, "%s ", "wlp4s0" },
 	{ ipv4, "%s ", "wlp4s0" },
