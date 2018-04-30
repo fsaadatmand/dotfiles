@@ -52,11 +52,11 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 
-	{ cpu_perc, "%2s%% ", NULL }, 
+	{ cpu_perc, "%3s%% ", NULL }, 
 	{ temp, "%sC ", "/sys/class/thermal/thermal_zone0/temp" },
 	{ ram_used, "%.5s ", NULL },
-//	{ ipv4, "eth %s ", "enp60s0u2" },
-//	{ run_command, "%s ", "/home/faisal/bin/net_speed.sh wlps40" },
+/*	{ ipv4, "eth %s ", "enp60s0u2" }, */
+/*	{ run_command, "%s ", "/home/faisal/bin/net_speed.sh wlps40" }, */
 	{ wifi_perc, "[%s]", "wlp4s0" },
 	{ wifi_essid, "%s ", "wlp4s0" },
 	{ ipv4, "%s ", "wlp4s0" },
