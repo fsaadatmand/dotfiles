@@ -1,0 +1,18 @@
+#"amixer -c 0 set Master 1dB-"
+"pamixer --decrease 5"
+  XF86AudioLowerVolume
+#"amixer set Master 5%+"
+#"amixer -c 0 set Master 1dB+"
+"pamixer --increase 5"
+  XF86AudioRaiseVolume
+#"amixer set Master 5%-"
+
+#"amixer -c 0 set Master toggle"
+#"amixer set Master toggle"
+"pamixer --toggle-mute"
+  XF86AudioMute
+
+"xbacklight -dec 5"
+  XF86MonBrightnessDown
+"xbacklight -inc 5"
+  XF86MonBrightnessUp
