@@ -64,7 +64,6 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-// static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
 static const char *chrmcmd[]  = { "google-chrome-stable", NULL };
 static const char *muttcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
@@ -77,7 +76,6 @@ static const char *clpmcmd[]  = { "clipmenu", "-fn", "Terminus (TTF):pixelsize=2
 static const char *surfcmd[]  = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *vboxcmd[] = { "virtualbox", NULL };
-// static const unsigned int gappx = 3; /* gap pixel between windows */
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -121,11 +119,12 @@ static Key keys[] = {
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
-//	TAGKEYS(                        XK_5,                      4)
-//	TAGKEYS(                        XK_6,                      5)
-//	TAGKEYS(                        XK_7,                      6)
-//	TAGKEYS(                        XK_8,                      7)
-//	TAGKEYS(                        XK_9,                      8)
+/*	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
+*/	
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -145,4 +144,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
