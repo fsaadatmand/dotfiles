@@ -1,0 +1,46 @@
+[general]
+ui= ttyui
+accounts = videotron
+pythonfile = ~/.mutt/offlineimap.py
+
+[Account videotron]
+localrepository = videotron-local
+remoterepository = videotron-remote
+postsynchook = ~/bin/notmuch-hook.sh
+
+[Repository videotron-local]
+type = Maildir
+localfolders = ~/Mail/videotron
+nametrans = lambda folder: {'drafts':  '/Drafts',
+                            'sent':    '/Sent Messages',
+                            'trash':   '/Trash',
+                            }.get(folder, folder)
+
+
+[Repository videotron-remote]
+maxconnections = 1
+type = IMAP
+remotehost = imap.videotron.ca
+remoteport = 993
+remoteuser = faisal@videotron.ca
+remotepasseval = get_pass()
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+nametrans = lambda folder: {'/Drafts':    'drafts',
+                            '/Sent Messages': 'sent',
+                            '/Trash':     'trash',
+                            '/All Mail':  'archive',
+                            }.get(folder, folder)
+folderfilter = lambda folder: folder not in ['/Trash',
+                                             '/Important',
+                                             '/Spam',
+                                             ]
+
+# realdelete = no
+
+#[mbnames]
+#enabled = yes
+#filename = ~/.mutt/mailboxes
+#header = "mailboxes "
+#peritem = "+%(accountname)s/%(foldername)s"
+#sep = " "
+#footer = "\n"
