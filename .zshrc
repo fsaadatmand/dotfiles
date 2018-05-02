@@ -1,15 +1,21 @@
-# Lines configured by zsh-newuser-install
+# if non-interactive, then do nothing.
+if [[ ! -o interactive ]]; then
+   return
+fi
+
+# history settings
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+# vi mode
 bindkey -v
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
+
+# compinstall
 zstyle :compinstall filename '/home/faisal/.zshrc'
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 # auto compeletion with arrow-key
 zstyle ':completion:*' menu select
@@ -29,16 +35,9 @@ alias ls='ls --color=auto'
 alias vi='nvim'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
-
 # saftey meseaures
 alias mv='timeout 8 mv -iv'
 alias rm='timeout 3 rm -Iv --one-file-system'
-
-# promt setting
-PROMPT="%n@%m:%~ %# " 
-#PROMPT=[%n@%m:%c]%#
-#prompt redhat
-#prompt suse
 
 # fix home and ESC keys in terminal
 bindkey "${terminfo[khome]}" beginning-of-line
@@ -48,11 +47,22 @@ bindkey "${terminfo[kend]}" end-of-line
 bindkey    "^[[3~"          delete-char
 bindkey    "^[3;5~"         delete-char
 
-# default browser
+# set window title
+case $TERM in
+    st|st-256color|*xterm*|tmux|tmux-256color|(dt|k|E)term)
+    precmd () {
+      print -Pn "\e]0;%~ %#\a"
+    } 
+    preexec () { print -Pn "\e]0;%~ %# $1\a" }
+    ;;
+esac
+
+# variables 
+EDITOR="nvim"
 BROWSER="google-chrome-stable"
 
-# scale G
-#export GDK_SCALE=2
+# promt setting
+PROMPT="%n@%m:%~ %# " 
 
 # add colours to man
 man() {
