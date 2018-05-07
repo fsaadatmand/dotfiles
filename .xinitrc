@@ -11,7 +11,7 @@ xbindkeys &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # window effects
-# compton -b &
+compton -b &
 
 # dwm status bar
 /usr/bin/slstatus &
@@ -27,7 +27,7 @@ xset s 900 &
 clipmenud &
 
 # X background colour
-xsetroot -gray &
+#xsetroot -gray &
 
 # wallpaper
 #feh --bg-fill "/home/faisal/Photo/wallpapers/IMG_398953.png" &
