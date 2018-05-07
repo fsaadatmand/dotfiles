@@ -64,7 +64,7 @@ static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "
 static const char *chrmcmd[]  = { "google-chrome-stable", NULL };
 static const char *muttcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
 static const char *nmcmd[]    = { "networkmanager_dmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
-static const char *passcmd[]  = { "passmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
+static const char *passcmd[]  = { "passmenu", NULL };
 static const char *sshmcmd[]  = { "/home/faisal/bin/sshmenu", NULL };
 static const char *taskcmd[]  = { "/home/faisal/bin/taskmenu", NULL };
 static const char *calcmd[]  = { "/home/faisal/bin/calmenu", NULL };
@@ -90,8 +90,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY|ShiftMask,             XK_d,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -106,7 +104,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_z,      spawn,          {.v = passcmd} },
 	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
 	{ MODKEY,                       XK_c,      spawn,          {.v = calcmd} },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = sshmcmd} },
+	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
 	{ MODKEY,                       XK_x,      spawn,          {.v = clpmcmd} },
 	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = slockcmd} },
