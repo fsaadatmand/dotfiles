@@ -1,0 +1,5 @@
+#!/bin/bash
+# a script to run calendar for use with dmenu
+
+st -e cal | awk '{ print $2 }' #| dmenu -fn "Terminus (TTF):size=20"
+

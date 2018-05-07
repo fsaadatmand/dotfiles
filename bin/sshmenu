@@ -1,0 +1,5 @@
+#!/bin/sh
+# dmenu ssh launcher for configured hosts in ~/.ssh/config
+# credit: MACR0S.BLOG https://blog.tenak.net/2010/07/2010-07-ssh_dmenu.html
+
+st -e ssh `cat ~/.ssh/config | grep ^Host | awk '{ print $2 }' | dmenu -fn "Terminus (TTF):pixelsize=28"`
