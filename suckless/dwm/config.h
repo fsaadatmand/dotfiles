@@ -68,7 +68,8 @@ static const char *passcmd[]  = { "passmenu", NULL };
 static const char *sshmcmd[]  = { "/home/faisal/bin/sshmenu", NULL };
 static const char *taskcmd[]  = { "/home/faisal/bin/taskmenu", NULL };
 static const char *calcmd[]  = { "/home/faisal/bin/calmenu", NULL };
-static const char *clpmcmd[]  = { "clipmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
+static const char *clpmcmd[]  = { "clipmenu", NULL };
+static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "cmus", NULL };
 static const char *surfcmd[]  = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *vboxcmd[] = { "virtualbox", NULL };
@@ -98,16 +99,17 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_apostrophe,      spawn,          {.v = calcmd} },
 	{ MODKEY,                       XK_w,      spawn,          {.v = chrmcmd} },
+	{ MODKEY,                       XK_x,      spawn,          {.v = clpmcmd} },
+	{ MODKEY,                       XK_c,      spawn,          {.v = cmuscmd} },
 	{ MODKEY,                       XK_e,      spawn,          {.v = muttcmd} },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nmcmd} },
 	{ MODKEY,                       XK_z,      spawn,          {.v = passcmd} },
-	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
-	{ MODKEY,                       XK_c,      spawn,          {.v = calcmd} },
 	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
-	{ MODKEY,                       XK_x,      spawn,          {.v = clpmcmd} },
-	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = slockcmd} },
+	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },
+	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
 	{ MODKEY,                       XK_v,      spawn,          {.v = vboxcmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)

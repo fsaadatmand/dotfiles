@@ -127,9 +127,9 @@ static SiteSpecific certs[] = {
 
 /* youtube videos */
 #define WATCH {.v = (char *[]){ "/bin/sh", "-c", \
-	"st -e \
-	yt $(xprop -id $0 _SURF_URI | cut -d \\\" -f 2)", \
-	winid, NULL } }
+    "st -e \
+    yt $(xprop -id $0 _SURF_URI | cut -d \\\" -f 2)", \
+    winid, NULL } }
 
 /* hotkeys */
 
