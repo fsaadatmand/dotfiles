@@ -12,7 +12,7 @@ then
 fi
 
 runtabbed() {
-	tabbed -dn tabbed-surf -r 2 surf -e '' "$uri" >"$xidfile" \
+	tabbed -dn tabbed-surf -c -r 2 surf -e '' "$uri" >"$xidfile" \
 		2>/dev/null &
 }
 
