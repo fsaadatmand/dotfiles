@@ -69,10 +69,11 @@ static const char *sshmcmd[]  = { "/home/faisal/bin/sshmenu", NULL };
 static const char *taskcmd[]  = { "/home/faisal/bin/taskmenu", NULL };
 static const char *calcmd[]  = { "/home/faisal/bin/calmenu", NULL };
 static const char *clpmcmd[]  = { "clipmenu", NULL };
-static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "cmus", NULL };
+static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "cmus", NULL };
 static const char *surfcmd[]  = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *vboxcmd[] = { "virtualbox", NULL };
+static const char *zathuracmd[]  = { "zathura", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -105,12 +106,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_c,      spawn,          {.v = cmuscmd} },
 	{ MODKEY,                       XK_e,      spawn,          {.v = muttcmd} },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nmcmd} },
-	{ MODKEY,                       XK_z,      spawn,          {.v = passcmd} },
+	{ MODKEY,                       XK_period,      spawn,          {.v = passcmd} },
 	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = slockcmd} },
 	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },
 	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
 	{ MODKEY,                       XK_v,      spawn,          {.v = vboxcmd} },
+	{ MODKEY,                       XK_z,      spawn,          {.v = zathuracmd} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

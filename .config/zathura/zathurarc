@@ -1,2 +1,5 @@
 set font "Terminus normal 18"
 set smooth-scroll true
+set selection-clipboard clipboard
+set window-title-basename true
+set statusbar-home-tilde true
