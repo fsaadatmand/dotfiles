@@ -57,8 +57,12 @@ case $TERM in
     ;;
 esac
 
+# FZF - fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
+
 # variables 
-EDITOR="nvim"
+EDITOR=/usr/bin/nvim
 BROWSER="google-chrome-stable"
 
 # promt setting
