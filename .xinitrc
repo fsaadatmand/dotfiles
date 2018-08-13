@@ -4,6 +4,14 @@
 #xrdb -merge ~/.Xresorces &
 #[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources &
 
+# ensures you're not stuck in CAPS on mode
+xmodmap -e 'clear Lock'
+# remaps the keyboard so CAPS LOCK = ESC
+xmodmap -e 'keycode 0x42=Escape'
+
+# speed X keyrpeat
+xset r rate 400 50
+
 # custom keybinding
 xbindkeys &
 
@@ -11,7 +19,7 @@ xbindkeys &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # window effects
-# compton -b &
+#compton -b &
 
 # dwm status bar
 /usr/bin/slstatus &
