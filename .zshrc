@@ -62,7 +62,7 @@ esac
 source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 
 # variables 
-EDITOR=/usr/bin/nvim
+EDITOR="/usr/bin/nvim"
 BROWSER="google-chrome-stable"
 
 # promt setting
