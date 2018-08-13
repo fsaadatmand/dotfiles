@@ -37,7 +37,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -60,16 +60,19 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
+//static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *chrmcmd[]  = { "google-chrome-stable", NULL };
-static const char *muttcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
+//static const char *muttcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
+static const char *muttcmd[]  = { "st", "-e", "neomutt", NULL };
 static const char *nmcmd[]    = { "networkmanager_dmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
 static const char *passcmd[]  = { "passmenu", NULL };
 static const char *sshmcmd[]  = { "/home/faisal/bin/sshmenu", NULL };
 static const char *taskcmd[]  = { "/home/faisal/bin/taskmenu", NULL };
 static const char *calcmd[]  = { "/home/faisal/bin/calmenu", NULL };
 static const char *clpmcmd[]  = { "clipmenu", NULL };
-static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "cmus", NULL };
+//static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "cmus", NULL };
+static const char *cmuscmd[]  = { "st", "-e", "cmus", NULL };
 static const char *surfcmd[]  = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
 static const char *slockcmd[] = { "slock", NULL };
 static const char *vboxcmd[] = { "virtualbox", NULL };
