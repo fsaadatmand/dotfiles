@@ -1,15 +1,11 @@
 " vim:ts=8
 
-" patyogen options:
-execute pathogen#infect()
-
 " default options
 set backspace=indent,eol,start
 set title
 set ruler
 set hidden
 set incsearch
-"set laststatus=2
 set modelines=5
 set ignorecase
 set scrolloff=10
@@ -24,10 +20,20 @@ set wildmenu
 set nofoldenable
 set cursorline
 set termguicolors
+set inccommand=nosplit
 
 colorscheme base16-tomorrow-night
 syntax on
 filetype plugin indent on
+
+
+let g:python_host_prog = '/usr/bin/python2.7'
+let g:python3_host_prog = '/usr/bin/python3.7'
+
+
+" ycm semantic completion:
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 
 " number toggle
 set number relativenumber
@@ -45,7 +51,6 @@ set listchars=tab:▸\ ,eol:¬
 highlight NonText guifg=#4a4a59
 highlight SpecialKey guifg=#4a4a59
 
-
 " unmap arrow keys
 "no <down> ddp
 "no <up> ddkP
@@ -62,6 +67,12 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
+" smooth_scroll maps
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 " System & xterm clipboard
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
@@ -74,9 +85,16 @@ nmap <silent> <leader>s :set spell!<CR>
 " Set region to British English
 set spelllang=en_gb
 
-" lightline colorscheme configuration
+" lightline settings
 let g:lightline = {
       \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
 " NERDTree Options:
