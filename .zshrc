@@ -9,7 +9,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 # vi mode
-bindkey -v
+bindkey -e
 
 # compinstall
 zstyle :compinstall filename '/home/faisal/.zshrc'

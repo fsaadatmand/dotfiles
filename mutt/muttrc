@@ -31,7 +31,7 @@ set sidebar_width   = 24
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 set sidebar_short_path                  # Shorten mailbox names
 set sidebar_delim_chars="/"             # Delete everything up to the last / character
-color sidebar_new color221 color233
+# color sidebar_new color221 color233
 
 # Status Bar -----------------------------------------
 set status_chars  = " *%A"

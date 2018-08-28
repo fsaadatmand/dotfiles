@@ -5,13 +5,15 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus (TTF):pixelsize=28" };
-static const char dmenufont[]       = "Terminus (TTF):pixelsize=28";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+//static const char *fonts[]          = { "Terminus (TTF):pixelsize=28" };
+//static const char dmenufont[]       = "Terminus (TTF):pixelsize=28";
+static const char *fonts[]          = { "xos4 Terminus:style=Regular:size=22" };
+static const char dmenufont[]       = "xos4 Terminus:style=Regular:size=22";
+static const char col_gray1[]       = "#2E3440";
+static const char col_gray2[]       = "#3B4252";
+static const char col_gray3[]       = "#D8dEE9";
+static const char col_gray4[]       = "#ECEFF4";
+static const char col_cyan[]        = "#5E81AC";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -19,7 +21,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "funky", "punky", "clunky", "xarly" };
+static const char *tags[] = { "funky", "punky", "clunky", "xarly"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -37,7 +39,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -61,22 +63,23 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 //static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
-static const char *termcmd[]  = { "st", NULL };
-static const char *chrmcmd[]  = { "google-chrome-stable", NULL };
+static const char *termcmd[]     = { "st", NULL };
+static const char *chrmcmd[]     = { "google-chrome-stable", NULL };
 //static const char *muttcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
-static const char *muttcmd[]  = { "st", "-e", "neomutt", NULL };
-static const char *nmcmd[]    = { "networkmanager_dmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
-static const char *passcmd[]  = { "passmenu", NULL };
-static const char *sshmcmd[]  = { "/home/faisal/bin/sshmenu", NULL };
-static const char *taskcmd[]  = { "/home/faisal/bin/taskmenu", NULL };
-static const char *calcmd[]  = { "/home/faisal/bin/calmenu", NULL };
-static const char *clpmcmd[]  = { "clipmenu", NULL };
+static const char *muttcmd[]     = { "st", "-e", "neomutt", NULL };
+static const char *nmcmd[]       = { "networkmanager_dmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
+static const char *passcmd[]     = { "passmenu", NULL };
+static const char *sshmcmd[]     = { "/home/faisal/bin/sshmenu", NULL };
+static const char *taskcmd[]     = { "/home/faisal/bin/taskmenu", NULL };
+static const char *calcmd[]      = { "/home/faisal/bin/calmenu", NULL };
+static const char *clpmcmd[]     = { "clipmenu", NULL };
 //static const char *cmuscmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "cmus", NULL };
-static const char *cmuscmd[]  = { "st", "-e", "cmus", NULL };
-static const char *surfcmd[]  = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
-static const char *slockcmd[] = { "slock", NULL };
-static const char *vboxcmd[] = { "virtualbox", NULL };
+static const char *cmuscmd[]     = { "st", "-e", "cmus", NULL };
+static const char *surfcmd[]     = { "/home/faisal/bin/surf-open.sh", "https://www.duckduckgo.com/", NULL };
+static const char *slockcmd[]    = { "slock", NULL };
+static const char *vboxcmd[]     = { "virtualbox", NULL };
 static const char *zathuracmd[]  = { "zathura", NULL };
+static const char *emacscmd[]    = { "emacs", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -108,8 +111,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_x,      spawn,          {.v = clpmcmd} },
 	{ MODKEY,                       XK_c,      spawn,          {.v = cmuscmd} },
 	{ MODKEY,                       XK_e,      spawn,          {.v = muttcmd} },
+	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = emacscmd} },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nmcmd} },
-	{ MODKEY,                       XK_period,      spawn,          {.v = passcmd} },
+	{ MODKEY,                       XK_period, spawn,          {.v = passcmd} },
 	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = slockcmd} },
 	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },

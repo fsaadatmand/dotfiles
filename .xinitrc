@@ -5,12 +5,12 @@
 #[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources &
 
 # ensures you're not stuck in CAPS on mode
-xmodmap -e 'clear Lock'
-# remaps the keyboard so CAPS LOCK = ESC
-xmodmap -e 'keycode 0x42=Escape'
+#xmodmap -e 'clear Lock' &
+#remaps the keyboard so CAPS LOCK = ESC &
+#xmodmap -e 'keycode 0x42=Escape' &
 
 # speed X keyrpeat
-xset r rate 400 50
+xset r rate 400 25 &
 
 # custom keybinding
 xbindkeys &
