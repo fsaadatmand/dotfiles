@@ -1,27 +1,33 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-//static const char *fonts[]          = { "Terminus (TTF):pixelsize=28" };
-//static const char dmenufont[]       = "Terminus (TTF):pixelsize=28";
-//static const char *fonts[]          = { "xos4 Terminus:style=Regular:size=22" };
-//static const char dmenufont[]       = "xos4 Terminus:style=Regular:size=22";
-static const char *fonts[]          = { "Source Code Pro:size=18" };
-static const char dmenufont[]       = "Source Code Pro:size=18";
+static const char *fonts[]          = { "Source Code Pro:size=18:antialias=true:autohint=true" };
+static const char dmenufont[]       = "Source Code Pro:size=18:antialias=true:autohint=true";
 static const char col_gray1[]       = "#2E3440";
 static const char col_gray2[]       = "#3B4252";
 static const char col_gray3[]       = "#D8dEE9";
 static const char col_gray4[]       = "#ECEFF4";
 static const char col_cyan[]        = "#5E81AC";
+//static const unsigned int baralpha = 0xd0;
+//static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
+//static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+//	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+//	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
+//};
 
+/* useless gaps */
+static const unsigned int gappx = 6; /* gap pixel between windows */
+ 
 /* tagging */
 static const char *tags[] = { "funky", "punky", "clunky", "xarly"};
 
@@ -81,7 +87,9 @@ static const char *surfcmd[]     = { "/home/faisal/bin/surf-open.sh", "https://w
 static const char *slockcmd[]    = { "slock", NULL };
 static const char *vboxcmd[]     = { "virtualbox", NULL };
 static const char *zathuracmd[]  = { "zathura", NULL };
-static const char *emacscmd[]    = { "emacs", NULL };
+static const char *emacscmd[]    = { "emacs", "-mm", NULL };
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -122,6 +130,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
 	{ MODKEY,                       XK_v,      spawn,          {.v = vboxcmd} },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathuracmd} },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

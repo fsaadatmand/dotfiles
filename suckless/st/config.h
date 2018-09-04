@@ -6,7 +6,8 @@
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
 //static char *font = "Terminus (TTF):pixelsize=28:antialias=true:autohint=true";
-static char *font = "xos4 Terminus:style=Regular:size=22:antialias=true:autohint=true";
+//static char *font = "xos4 Terminus:size=22:antialias=true:autohint=true";
+static char *font = "Source Code Pro:size=18:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
