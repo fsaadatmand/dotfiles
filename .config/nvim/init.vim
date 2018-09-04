@@ -1,5 +1,17 @@
 " vim:ts=8
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
+" minpac installed plugins
+source ~/.config/nvim/packages.vim
+
+"map vi ~/.config/nvm/init.vim
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 " default options
 set backspace=indent,eol,start
 set title
@@ -27,23 +39,28 @@ syntax on
 filetype plugin indent on
 
 " nord theme settings
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
 let g:nord_uniform_status_lines = 1
 let g:nord_comment_brightness = 12
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 colorscheme nord
 
-" hexhighlight
-nmap <F2>           <Plug>ToggleHexHighlight
-nmap <leader><F2>   <Plug>ToggleSchemeHighlight
+" FZF runtimepath
+set rtp+=~/.fzf
 
-" pyton providor
-let g:python_host_prog = '/usr/bin/python2.7'
-let g:python3_host_prog = '/usr/bin/python3.7'
+" hide statusline when FZF is called
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 " ycm semantic completion:
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_collect_identifiers_from_tags_files=1
+set completeopt-=preview
+let g:ycm_seed_identifiers_with_syntax=1
 
 " number toggle
 set number relativenumber
@@ -53,7 +70,7 @@ augroup numbertoggle
   autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
-" Shortcut to rapidly toggle `set list`" Shor 
+" Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -108,7 +125,7 @@ let g:lightline = {
       \ }
 
 " NERDTree Options:
-map <C-n> :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeShowLineNumbers=0
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
