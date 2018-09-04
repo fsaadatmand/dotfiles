@@ -59,7 +59,6 @@ esac
 
 # FZF - fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source /usr/share/fzf/key-bindings.zsh && source /usr/share/fzf/completion.zsh
 
 # variables 
 EDITOR="/usr/bin/nvim"
@@ -78,3 +77,33 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
+
+# FZF nord color scheme
+_gen_fzf_default_opts() {
+
+local color00='#2E3440'
+local color01='#3B4252'
+local color02='#434C5E'
+local color03='#4C566A'
+local color04='#D8DEE9'
+local color05='#E5E9F0'
+local color06='#ECEFF4'
+local color07='#8FBCBB'
+local color08='#88C0D0'
+local color09='#81A1C1'
+local color0A='#5E81AC'
+local color0B='#BF616A'
+local color0C='#D08770'
+local color0D='#EBCB8B'
+local color0E='#A3BE8C'
+local color0F='#B48EAD'
+
+export FZF_DEFAULT_OPTS="
+  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+"
+
+}
+
+_gen_fzf_default_opts
