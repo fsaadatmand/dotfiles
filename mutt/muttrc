@@ -168,3 +168,10 @@ source ~/.mutt/mailboxes
 macro index A "<modify-labels>+archive -unread -inbox\\n" "Archive message"
 macro index c "<change-vfolder>?" "Change to vfolder overview"
 macro index \\\\ "<vfolder-from-query>" "Search mailbox"
+
+# Color scheme
+color sidebar_new color3 color0        # new message in sidebar
+color status color15 color12           # status bars 
+# index
+color index      color3 color0 ~N      # new message
+color index      color1 color0 ~D      # deleted message
