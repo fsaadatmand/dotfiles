@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "Terminus (TTF):pixelsize=24";
-static const char* normbgcolor  = "#222222";
-static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#555555";
-static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#111111";
-static const char* urgfgcolor   = "#cc0000";
+static const char font[]        = "Source Code Pro:size=16";
+static const char* normbgcolor  = "#3b4252";
+static const char* normfgcolor  = "#e5e9f0";
+static const char* selbgcolor   = "#4c566a";
+static const char* selfgcolor   = "#eceff4";
+static const char* urgbgcolor   = "#3b4252";
+static const char* urgfgcolor   = "#bf616a";
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";
