@@ -19,7 +19,7 @@ xbindkeys &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # window effects
-#compton -b &
+compton -b &
 
 # dwm status bar
 /usr/bin/slstatus &
