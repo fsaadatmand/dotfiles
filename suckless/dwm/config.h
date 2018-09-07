@@ -1,7 +1,9 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "push.c"
+
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -131,6 +133,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_v,      spawn,          {.v = vboxcmd} },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathuracmd} },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
+	{ MODKEY|ControlMask,           XK_k,      pushup,         {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
