@@ -16,6 +16,8 @@ xset r rate 400 25 &
 xbindkeys &
 
 # redshif 
+#exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
+/usr/lib/geoclue-2.0/demos/agent &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # window effects
