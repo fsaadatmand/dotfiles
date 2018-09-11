@@ -61,8 +61,9 @@ esac
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # variables 
-EDITOR="/usr/bin/nvim"
-BROWSER="google-chrome-stable"
+export VISUAL="nvim"
+export EDITOR="nvim -e"
+export BROWSER="google-chrome-stable"
 
 # promt setting
 PROMPT="%n@%m:%~ %# " 
