@@ -1,7 +1,14 @@
-#text/html; w3m -I %{charset} -T text/html; copiousoutput;
-
 # MS Word documents
-application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+#application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# MS Office documents
+application/x-msexcel; ~/.mutt/view_attachment.sh %s
+application/ms-exc; ~/.mutt/view_attachment.sh %s
+application/excel; ~/.mutt/view_attachment.sh %s
+application/msexcel; ~/.mutt/view_attachment.sh %s
+application/vnd.ms-exc; ~/.mutt/view_attachment.sh %s
+application/vnd.ms-excel; ~/.mutt/view_attachment.sh %s
+application/msword; ~/.mutt/view_attachment.sh %s
 
 # Images
 image/jpg; ~/.mutt/view_attachment.sh %s jpg
@@ -13,11 +20,11 @@ image/gif; ~/.mutt/view_attachment.sh %s gif
 # PDFs
 application/pdf; ~/.mutt/view_attachment.sh %s pdf
 
-# HTML
-text/html; ~/.mutt/view_attachment.sh %s html
-
 # Unidentified files
 application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
 
-# View HTML emais
+# HTML gui browser
+text/html; ~/.mutt/view_attachment.sh %s html
+
+# Auto view HTML emais in cli browser 
 text/html; w3m -I %{charset} -T text/html; copiousoutput;

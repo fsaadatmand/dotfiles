@@ -129,6 +129,9 @@ macro index,pager \cb "\
 # View html emails in w3m
 auto_view text/html
 
+# open html emails in default gui web browser
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
 # Compose View Options -------------------------------
 set realname = "Faisal Saadatmand"   # who am i?
 set envelope_from                    # which from?
