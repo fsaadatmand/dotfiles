@@ -22,7 +22,7 @@ set modelines=5
 set ignorecase
 set scrolloff=10
 set shiftwidth=4
-set showcmd
+set noshowcmd
 set showmatch
 set noshowmode
 set smartcase
@@ -125,7 +125,7 @@ let g:lightline = {
       \ }
 
 " NERDTree Options:
-"map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeShowLineNumbers=0
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
