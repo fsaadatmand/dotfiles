@@ -11,3 +11,5 @@
   filemode = false
   trustctime = false
     autocrlf = input
+[credential]
+	helper = cache
