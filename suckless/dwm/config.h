@@ -21,11 +21,6 @@ static const char *colors[][3]      = {
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
-//static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border     */
-//	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
-//	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
-//};
 
 /* useless gaps */
 static const unsigned int gappx = 6; /* gap pixel between windows */
@@ -39,7 +34,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+//	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{  NULL,      NULL,       "mutt",     0,            0,           -1 },
 	{  NULL,      NULL,       "mpv",      0,            1,           -1 },
 	{  NULL,      NULL,       "feh",      0,            1,           -1 },
@@ -72,14 +67,15 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-//static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
 static const char *termcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", NULL };
+static const char *tmuxcmd[]  = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", NULL };
+//static const char *termcmd[]     = { "st", NULL };
 static const char *chrmcmd[]     = { "google-chrome-stable", NULL };
 //static const char *muttcmd[]     = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "tmux", "new-session", "neomutt", NULL };
 static const char *muttcmd[]     = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "neomutt", NULL };
 static const char *nmcmd[]       = { "networkmanager_dmenu", "-fn", "Terminus (TTF):pixelsize=28", NULL };
 static const char *passcmd[]     = { "passmenu", NULL };
-static const char *sshmcmd[]     = { "/home/faisal/bin/sshmenu", NULL };
+//static const char *sshmcmd[]     = { "/home/faisal/bin/sshmenu", NULL };
 static const char *taskcmd[]     = { "/home/faisal/bin/taskmenu", NULL };
 static const char *calcmd[]      = { "/home/faisal/bin/calmenu", NULL };
 static const char *clpmcmd[]     = { "clipmenu", NULL };
@@ -92,6 +88,7 @@ static const char *zathuracmd[]  = { "zathura", NULL };
 static const char *emacscmd[]    = { "emacs", "-mm", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+static const char *rangercmd[]     = { "tabbed", "-c", "-r", "2", "st", "-w", "''", "-e", "ranger", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -126,13 +123,15 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = emacscmd} },
 	{ MODKEY,                       XK_n,      spawn,          {.v = nmcmd} },
 	{ MODKEY,                       XK_period, spawn,          {.v = passcmd} },
-	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
+//	{ MODKEY,                       XK_r,      spawn,          {.v = sshmcmd} },
 	{ MODKEY,                       XK_F12,    spawn,          {.v = slockcmd} },
 	{ MODKEY,                       XK_s,      spawn,          {.v = surfcmd} },
 	{ MODKEY,                       XK_slash,  spawn,          {.v = taskcmd} },
 	{ MODKEY,                       XK_v,      spawn,          {.v = vboxcmd} },
 	{ MODKEY,                       XK_z,      spawn,          {.v = zathuracmd} },
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
+	{ MODKEY,                       XK_r,      spawn,          {.v = rangercmd} },
+	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = tmuxcmd } },
 	{ MODKEY|ControlMask,           XK_j,      pushdown,       {0} },
 	{ MODKEY|ControlMask,           XK_k,      pushup,         {0} },
 	TAGKEYS(                        XK_1,                      0)
@@ -149,7 +148,7 @@ static Key keys[] = {
 };
 
 /* button definitions */
-/* click can be ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
