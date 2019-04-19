@@ -178,3 +178,8 @@ color status color15 color12           # status bars
 # index
 color index      color3 color0 ~N      # new message
 color index      color1 color0 ~D      # deleted message
+
+# Printer setting
+set print_command="/usr/bin/muttprint %s -p {officejet_6500_E710n-z}"
+
+
