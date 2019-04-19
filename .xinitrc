@@ -14,6 +14,7 @@ xset r rate 400 25 &
 
 # custom keybinding
 xbindkeys &
+xmodmap ~/.disable_capslock
 
 # redshif 
 #exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
@@ -21,7 +22,7 @@ xbindkeys &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # window effects
-compton -b &
+ compton -b &
 
 # dwm status bar
 /usr/bin/slstatus &
@@ -40,7 +41,7 @@ clipmenud &
 #xsetroot -gray &
 
 # wallpaper
-#feh --bg-fill "/home/faisal/Photo/wallpapers/IMG_398953.png" &
+feh --bg-fill "/home/faisal/Photo/wallpapers/minimal_mountains_landscape-2560x1440.jpg"
 
 # start window manager script
 exec dwm 
