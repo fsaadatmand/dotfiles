@@ -37,13 +37,12 @@ set cursorline
 set shortmess=I
 set termguicolors
 set inccommand=nosplit
+set nohlsearch
+set number relativenumber
 "syntax on
 "filetype plugin indent on
 
 " nord theme settings
-"let g:nord_italic = 1
-"let g:nord_italic_comments = 1
-"let g:nord_uniform_status_lines = 1
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 colorscheme nord
@@ -69,14 +68,6 @@ set completeopt-=preview
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_clangd_binary_path = '/usr/bin/clangd'      " fix annoing (std::) AttributeError
 
-" number toggle
-set number relativenumber
-"augroup numbertoggle
-"  autocmd!
-"  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"  autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
-"augroup END
-
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -101,13 +92,6 @@ vno <left> <Nop>
 vno <right> <Nop>
 vno <up> <Nop>
 
-
-" smooth_scroll maps
-" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-" noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-" noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
-
 " System & xterm clipboard
 if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
@@ -120,20 +104,13 @@ nmap <silent> <leader>s :set spell!<CR>
 " Set region to British English
 set spelllang=en_gb
 
-" Terminad mode settings
-" set terminal split size
+" Terminad (neoterm) mode settings
 let g:neoterm_size = 10
+let g:neoterm_autoinsert = 1
 
 " open terminal in split window below
 map <M-CR> :belowright Ttoggle<CR>
-
-" no line numbers in Terminal mode
-"augroup TerminalStuff
-  " au! " Clear old autocommands
-"  autocmd TermOpen * setlocal nonumber norelativenumber
-  "enter in insert-mode
-  autocmd BufWinEnter,WinEnter term://* startinsert
-"augroup END
+tnoremap <M-CR> <c-\><c-n> :Ttoggle<CR>
 
 " exit terminal mode
 if has('nvim')
