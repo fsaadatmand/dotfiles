@@ -2,7 +2,7 @@
 
 # scale programs properly for HiDPI
 #xrdb -merge ~/.Xresorces &
-#[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources &
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # ensures you're not stuck in CAPS on mode
 #xmodmap -e 'clear Lock' &
@@ -21,8 +21,8 @@ xmodmap ~/.disable_capslock
 /usr/lib/geoclue-2.0/demos/agent &
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
-# window effects
- compton -b &
+# compositor
+#compton -b &
 
 # dwm status bar
 /usr/bin/slstatus &
@@ -41,7 +41,7 @@ clipmenud &
 #xsetroot -gray &
 
 # wallpaper
-feh --bg-fill "/home/faisal/Photo/wallpapers/minimal_mountains_landscape-2560x1440.jpg"
+feh --bg-fill "/home/faisal/Photo/wallpapers/auto-3298890_1920.jpg"
 
-# start window manager script
+# start window manager
 exec dwm 

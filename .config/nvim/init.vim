@@ -37,7 +37,7 @@ set cursorline
 set shortmess=I
 set termguicolors
 set inccommand=nosplit
-set nohlsearch
+"set nohlsearch
 set number relativenumber
 "syntax on
 "filetype plugin indent on
@@ -107,10 +107,13 @@ set spelllang=en_gb
 " Terminad (neoterm) mode settings
 let g:neoterm_size = 10
 let g:neoterm_autoinsert = 1
+let g:neoterm_autoscroll = 1
+
+autocmd BufEnter,Winenter * if &buftype == 'terminal' | :startinsert | endif
 
 " open terminal in split window below
 map <M-CR> :belowright Ttoggle<CR>
-tnoremap <M-CR> <c-\><c-n> :Ttoggle<CR>
+tnoremap <M-CR> <c-\><c-n> :belowright Ttoggle<CR>
 
 " exit terminal mode
 if has('nvim')

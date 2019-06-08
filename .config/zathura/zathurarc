@@ -1,4 +1,4 @@
-set font "Source Code Pro normal 18"
+set font "Source Code Pro normal 24px"
 set smooth-scroll true
 set selection-clipboard clipboard
 set window-title-basename true

@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "Source Code Pro:size=16";
+static const char font[]        = "Source Code Pro:pixelsize=22";
 static const char* normbgcolor  = "#3b4252";
 static const char* normfgcolor  = "#e5e9f0";
 static const char* selbgcolor   = "#4c566a";
@@ -59,8 +59,8 @@ static Key keys[] = {
 
 	{ MODKEY,               XK_q,      killclient,  { 0 } },
 
-	{ MODKEY,               XK_u,      focusurgent, { 0 } },
-	{ MODKEY|ShiftMask,     XK_u,      toggle,      { .v = (void*) &urgentswitch } },
+//	{ MODKEY,               XK_u,      focusurgent, { 0 } },
+//	{ MODKEY|ShiftMask,     XK_u,      toggle,      { .v = (void*) &urgentswitch } },
 
 	{ 0,                    XK_F11,    fullscreen,  { 0 } },
 };
