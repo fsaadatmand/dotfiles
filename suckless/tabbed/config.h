@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "Source Code Pro:pixelsize=22";
+static const char font[]        = "Source Code Pro:pixelsize=16:antialias=true";
 static const char* normbgcolor  = "#3b4252";
 static const char* normfgcolor  = "#e5e9f0";
 static const char* selbgcolor   = "#4c566a";
@@ -27,7 +27,7 @@ static Bool npisrelative  = False;
         .v = (char *[]){ "/bin/sh", "-c", \
                 "prop=\"`xwininfo -children -id $1 | grep '^     0x' |" \
                 "sed -e's@^ *\\(0x[0-9a-f]*\\) \"\\([^\"]*\\)\".*@\\1 \\2@' |" \
-                "xargs -0 printf %b | dmenu -l 10`\" &&" \
+                "xargs -0 printf %b | dmenu -l 10 -w $1`\" &&" \
                 "xprop -id $1 -f $0 8s -set $0 \"$prop\"", \
                 p, winid, NULL \
         } \

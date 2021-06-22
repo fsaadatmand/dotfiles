@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rsync -aAX /home/faisal tjury:~/volume1/x1carbon_backup/

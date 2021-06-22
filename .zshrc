@@ -59,7 +59,12 @@ esac
 
 # FZF - fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+# Layout
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --exclude .git'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 #FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 #FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
@@ -67,7 +72,9 @@ esac
 # variables 
 export VISUAL="nvim"
 export EDITOR="nvim -e"
-export BROWSER="google-chrome-stable"
+export BROWSER="chromium"
+export _JAVA_AWT_WM_NONREPARENTING=1 # fix for dwm
+export MOZ_ENABLE_WAYLAND=1 # for vaapi support in wayland
 
 # promt setting
 PROMPT="%n@%m:%~ %# " 

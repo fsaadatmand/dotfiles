@@ -51,12 +51,12 @@ set spoolfile= "+videotron/INBOX"
 
 # Mailboxes to show in the sidebar
 mailboxes +videotron/INBOX \
-          +videotron/archive \
+  #        +videotron/archive \
           +videotron/sent \
           +videotron/drafts \
           +videotron/Sent\ Messages \
           +videotron/Trash \
-
+#
 # Other special folders
 set mbox      = "+videotron/archive"
 set record = "+videotron/Sent\ Messages"
@@ -134,7 +134,7 @@ macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && $BROWSER ~/.cache/
 
 # Compose View Options -------------------------------
 set realname = "Faisal Saadatmand"   # who am i?
-set envelope_from                    # which from?
+#set envelope_from                    # which from?
 set sig_dashes                       # dashes before sig
 set edit_headers                     # show headers when composing
 set fast_reply                       # skip to compose when replying

@@ -1,20 +1,16 @@
 # !/bin/sh
 
 # scale programs properly for HiDPI
-#xrdb -merge ~/.Xresorces &
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
-
-# ensures you're not stuck in CAPS on mode
-#xmodmap -e 'clear Lock' &
-#remaps the keyboard so CAPS LOCK = ESC &
-#xmodmap -e 'keycode 0x42=Escape' &
 
 # speed X keyrpeat
 xset r rate 400 25 &
 
 # custom keybinding
 xbindkeys &
-xmodmap ~/.disable_capslock
+
+# change CapsLock to Ctrl
+#xmodmap ~/.disable_capslock &
 
 # redshif 
 #exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent &
@@ -22,7 +18,7 @@ xmodmap ~/.disable_capslock
 pgrep redshift &> /dev/null || redshift &> /dev/null &
 
 # compositor
-#compton -b &
+#picom -b &
 
 # dwm status bar
 /usr/bin/slstatus &
@@ -41,7 +37,11 @@ clipmenud &
 #xsetroot -gray &
 
 # wallpaper
-feh --bg-fill "/home/faisal/Photo/wallpapers/auto-3298890_1920.jpg"
+feh --bg-fill "/home/faisal/Downloads/images/pexels-pixabay-122429.jpg" &
+
+# blue tooth mouse
+#bluetoothctl connect 00:02:76:19:CF:17 &
 
 # start window manager
 exec dwm 
+#exec xmonad

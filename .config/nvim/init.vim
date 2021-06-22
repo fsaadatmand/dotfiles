@@ -11,14 +11,19 @@ source ~/.config/nvim/packages.vim
 "map vi ~/.config/nvm/init.vim
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>d :tabedit ~/builds/dwm-git/config.h<CR>
+
+" build and run shortcuts
+let cflags = "-Wall -Wextra -Werror -pedantic-errors " 
+let ccflags = "-Wall -Wextra -Werror -Weffc++ -pedantic-errors " 
+autocmd filetype c nnoremap <F4> :w <bar> exec '!clang ' cflags .shellescape('%') ' && ./a.out' <CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!clang++ ' ccflags .shellescape('%') ' && ./a.out' <CR>
 
 " default options
 set backspace=indent,eol,start
 set title
-set ruler
+"set ruler
 set hidden
-set incsearch
+"set incsearch
 set modelines=5
 set ignorecase
 set scrolloff=10
@@ -42,6 +47,10 @@ set number relativenumber
 "syntax on
 "filetype plugin indent on
 
+" true colours
+" execute "set t_8f=\e[38;2;%lu;%lu;%lum"
+" execute "set t_8b=\e[48;2;%lu;%lu;%lum"
+
 " nord theme settings
 let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
@@ -51,7 +60,8 @@ colorscheme nord
 set rtp+=~/.fzf
 
 " FZF keybindings
-map <C-p> :Files ~/<CR>
+map <A-p> :Files ~/<CR>
+map <C-p> :Files<CR>
 map <C-b> :Buffers<CR>
 map <C-h> :Helptags<CR>
 
@@ -60,13 +70,50 @@ autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" ycm semantic completion:
+" Ycm semantic completion:
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py' " C config file
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_collect_identifiers_from_tags_files = 1
 set completeopt-=preview
 let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_clangd_binary_path = '/usr/bin/clangd'      " fix annoing (std::) AttributeError
+let g:ycm_auto_trigger = 1
+"let g:ycm_clangd_binary_path = '/usr/bin/clangd'  " A fix for annoing (std::) AttributeError
+" let g:ycm_show_diagnostics_ui = 0 " use neomake instead
+
+" Ycm python settings
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+
+" ycm :ForceCompileAndDiagnostic command map
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" Neomake settings (linting)
+"autocmd! BufWritePost,insertleave,BufEnter,TextChanged * Neomake
+" autocmd! BufWinEnter,BufWritePost,insertleave,BufEnter,TextChanged * Neomake
+" let g:neomake_python_enabled_makers = ['pylint', 'python']
+"let g:neomake_cpp_enabled_makers = ['clangtidy']
+"let g:neomake_cpp_clangtidy_maker = {
+"   \ 'exe': '/usr/bin/clang-tidy',
+"   \ 'args': ['-checks=*' ],
+"   \}
+let g:neomake_cpp_enabled_makers = ['clang']
+let g:neomake_cpp_clang_maker = {
+    \ 'args': ['-std=c++17', '-Wall', '-Wextra', '-Weffc++', '-pedantic']
+    \ }
+
+" vim-cpp-enhanced-highlight
+" let g:cpp_class_scope_highlight = 1
+" let g:cpp_member_variable_highlight = 1
+" let g:cpp_class_decl_highlight = 1
+
+" Trigger configuration. UltiSnips
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -104,8 +151,8 @@ nmap <silent> <leader>s :set spell!<CR>
 " Set region to British English
 set spelllang=en_gb
 
-" Terminad (neoterm) mode settings
-let g:neoterm_size = 10
+" Terminal (neoterm) mode settings
+let g:neoterm_size = 5 
 let g:neoterm_autoinsert = 1
 let g:neoterm_autoscroll = 1
 
@@ -146,6 +193,11 @@ if has('nvim')
   nnoremap <M-l> <c-w>l
 endif
 
+" Tagbar settings
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1 
+let g:tagbar_compact = 1
+
 " lightline settings
 let g:lightline = {
       \ 'colorscheme': 'nord',
@@ -157,6 +209,7 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
+" let g:lightline#bufferline#enable_devicons = 1
 
 " NERDTree Options:
 map <C-n> :NERDTreeToggle<CR>
@@ -165,7 +218,7 @@ let g:NERDTreeShowLineNumbers = 0
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",

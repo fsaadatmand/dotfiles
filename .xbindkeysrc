@@ -8,6 +8,15 @@
 "pamixer --toggle-mute"
   XF86AudioMute
 
+"playerctl play-pause"
+  XF86AudioPlay
+
+"playerctl next"
+  XF86AudioNext
+
+"playerctl previous"
+  XF86AudioPrev
+
 # Brightness keys
 "xbacklight -dec 5"
   XF86MonBrightnessDown
